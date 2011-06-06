@@ -1,5 +1,5 @@
-module EulerExtensions
-  module EulerInteger
+module Euler
+  module Integer
     def prime?
       (2...self).each { |i| return false if self.divisible_by?(i) }
       return true
