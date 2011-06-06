@@ -5,26 +5,12 @@
 class Integer
   
   def largest_pf(display_progress = false)
-    count = 1
-    (2...self).each do |i|
-      return self / i if (self.divisible_by?(i) and (self / i).prime?)
-    end
-    raise "No prime factors"
-  end
-  
-  def smallest_pf(display_progress = false)
-    count = 1
-    (2...self).each do |i|
-      puts "[#{i}, #{self / i}]" if self.divisible_by? i
-      return i if self % i == 0 and i.prime?
-    end
-    raise "No prime factors"
+    (2...self).each { |i| return self / i if (self.divisible_by?(i) and (self / i).prime?) }
+    raise "No prime factors. how in the hell?"
   end
   
   def prime?
-    (2...self).each do |i|
-      return false if self.divisible_by?(i)
-    end
+    (2...self).each { |i| return false if self.divisible_by?(i) }
     return true
   end
   
